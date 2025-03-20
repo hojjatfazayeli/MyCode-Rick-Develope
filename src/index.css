@@ -1,0 +1,281 @@
+@import url(./reset.css);
+
+:root
+{
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    box-sizing: border-box;
+    --slate-900: #0f172a;
+    --slate-800: #1e293b;
+    --slate-700: #334155;
+    --slate-600: #475569;
+    --slate-500: rgb(100, 116, 139);
+    --slate-400: #94a3b8;
+    --slate-300: #cbd5e1;
+    --slate-200: #e2e8f0;
+    --slate-100: #f1f5f9;
+    --slate-50: #f8fafc;
+    --rose-600: #e11d48;
+    --rose-500: #f43f5e;
+    --green-600: #22c55e;
+}
+
+html
+{
+    font-size: 10px;
+}
+
+body
+{
+font-size: 1.6rem;
+background-color: var(--slate-900);
+padding: 3rem 15rem;
+margin-left: auto;
+margin-right: auto;
+}
+
+/*
+--- Header Section ---
+*/
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--slate-700);
+    padding: 2rem;
+    border-radius: 1.5rem;
+}
+.header-logo{
+font-weight: bold;
+font-size: 1.7rem;
+color: var(--slate-300);
+}
+.header-search{
+background-color: var(--slate-500);
+color: var(--slate-100);
+font-size: 1.5rem;
+outline: none;
+border: none;
+padding: 0.7rem 1.4rem;;
+border-radius: 0.9rem;
+width: 21rem;
+height: 3rem;
+}
+.header-search::placeholder
+{
+    color: var(--slate-400);
+    font-size: 1.8rem;
+}
+.header-counter{
+color: var(--slate-400);
+font-size: 1.8rem;
+}
+.header-favourites{
+background: none;
+border: none;
+position: relative;
+}
+.header-favourites_icon{
+color: var(--rose-600);
+width: 3.2rem;
+height: 3.2rem;
+}
+.header-favoriets_icon-counter{
+font-weight: bold;
+font-size: 1.4rem;
+position: absolute;
+top: 0;
+right: 0;
+color: var(--slate-100);
+background-color: var(--rose-500);
+padding: 2px 5px;;
+border-radius: 50%;
+}
+
+/*
+--- character-List ---
+*/
+
+.main{
+    display: flex;
+    gap: 4rem;
+    margin-top: 2rem;
+}
+.characters-list{
+}
+.character{
+background-color: var(--slate-800);
+display: flex;
+align-items: center;
+gap: 2rem;
+padding: 1.5rem;
+border-radius: 2rem;
+width: 50rem;
+margin-bottom: 2.5rem;
+}
+.character-image{
+width: 7rem;
+height: auto;
+border-radius: 1.5rem;
+}
+.character-details{
+display: flex;
+justify-content: space-between;
+align-items: center;
+width: 100%;
+}
+.character-content{
+}
+.character-name{
+font-weight: bold;
+color: var(--slate-200);
+font-size: 1.9rem;
+}
+.character-icon{
+    margin-right: 1rem;
+}
+.character-status{
+margin-top: 2rem;
+color: var(--slate-200);
+font-size: 1.6rem;
+}
+.character-status_icon{
+    margin-right: 1rem;
+    width: 0.5rem;
+    height: 0.5rem;
+}
+.character-info{
+width: 4.5rem;
+background: none;
+border: none;
+
+}
+.character-info_icon{
+    background-color: none;
+    color: var(--rose-600);
+    cursor: pointer;
+}
+.character-detail_image{
+color: #cbd5e1;
+}
+
+/*
+-- Character Detail Section --
+
+*/
+
+.character-detail{
+    width: 100%;
+}
+.charcter-detail_info{
+    background-color: var(--slate-800);
+    display: flex;
+    gap: 2rem;
+    width: 100%;
+    height: fit-content;
+    border-radius: 1.5rem;
+}
+.character-detail_image{
+width: 29rem;
+height: 27rem;
+border-bottom-left-radius: 1.5rem;
+border-top-left-radius: 1.5rem;
+}
+.character-detail_content{
+margin-top: 2.5rem;
+}
+.character-detail_name{
+    font-weight: bold;
+    color: var(--slate-200);
+    font-size: 1.9rem;
+}
+.character-detail_icon{
+margin-right: 1rem;
+}
+.character-detail_status{
+    margin-top: 2rem;
+    color: var(--slate-200);
+    font-size: 1.6rem;
+}
+.character-detail_status-icon{
+    margin-right: 1rem;
+}
+.character-detail_location{
+margin-top: 2rem;
+color: var(--slate-500);
+font-size: 1.9rem;
+}
+.character-detail_location-name{
+font-weight: bold;
+color: var(--slate-300);
+margin-top: 0.7rem;
+margin-bottom: 1.8rem;
+font-size: 1.8rem;
+}
+.character-detail_addfavouriets{
+    background-color: var(--slate-500);
+    color: var(--slate-100);
+    padding: 1.5rem 2rem;
+    border: none;
+    border-radius: 1.9rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/*
+-- Character Detail -- 
+*/
+
+.charcter-episodes_list{
+background-color: var(--slate-800);
+margin-top: 3.5rem;
+padding: 1.7rem;
+border-radius: 1.5rem;
+}
+.character-episodes_header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.character-episodes_title{
+color: var(--slate-400);
+font-weight: bold;
+font-size: 2.5rem;
+}
+.character-episode_sort{
+width: 4rem;
+height: 4rem;
+background: none;
+border: none;
+}
+.character-episode_sort-icon{
+color: var(--slate-300);
+}
+.character-episode_list{
+margin-top: 1.6rem;
+}
+.character-episode_item{
+display: flex;
+justify-content: space-between;
+align-items: center;
+color: var(--slate-200);
+margin-top: 1.7rem;
+}
+.character-episode_item-info{
+display: flex;
+align-items: center;
+gap: 0.5rem;
+}
+.character-episode_number{
+
+}
+.character-episode_title{
+font-weight: bold;
+}
+.character-episode_date{
+    font-weight: bold;
+    font-size: 1.4rem;
+    background-color: var(--slate-600);
+    padding: 0.7rem 1.5rem;
+    border-radius: 1.5rem;
+}
