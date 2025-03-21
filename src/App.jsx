@@ -6,14 +6,18 @@ import CharacterList from './components/CharacterList';
 import Search from './components/Search';
 import toast, { Toaster } from 'react-hot-toast';
 import CharacterDetail from './components/CharacterDetail';
+import Character from './components/Character';
+import Modal from './components/Modal';
 
 function App() {
   const [characters , setCharacters] = useState([]);
   const [search , setSearch] = useState("");
   const [selectedCharacter, setSelectedCharacter] = useState(null);
-  const [character , setCharacter] = useState(null);
+  const [character , setCharacter] = useState("");
   const [episodes , setEpisodes] = useState([]);
-
+  const [favourite , setFavourite] = useState([]);
+  const [isopne , setIsOpen] = useState(false);
+  console.log(favourite);
   useEffect(()=>{
     async function fetchData(){
       try{
@@ -62,15 +66,19 @@ function App() {
     fetchCharacter();
   } , [selectedCharacter]);
 
+
   return (
     <>
     <Toaster/>
-    <Header character = {characters.length}>
+    <Header character = {characters.length} favourite = {favourite.length} setIsOpn={setIsOpen}> 
       <Search search = {search} setSearch = {setSearch}/>
     </Header>
+    <Modal isopne = {isopne} setIsOpen = {setIsOpen} favourite= {favourite} setFavourite = {setFavourite}/>
     <Main>
       <CharacterList characters={characters} setSelectedCharacter= {setSelectedCharacter}/>
-      <CharacterDetail character = {character} episodes = {episodes}/>
+      <CharacterDetail character = {character} episodes = {episodes}>
+      <Character character = {character} setFavourite = {setFavourite}/>
+        </CharacterDetail>
     </Main>
     </>
   )

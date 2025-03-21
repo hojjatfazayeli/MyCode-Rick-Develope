@@ -1,13 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { ArrowUpCircleIcon} from "@heroicons/react/24/outline";
 
-function CharacterDetail({character , episodes}) {
-  if(!character) return <p>No Character Selected !!</p>
+function CharacterDetail({children , episodes }) {
   return (
+    <>
     <section className="character-detail">
-    <Character character = {character}/>
+        {children}
     <EpisodeList episodes = {episodes}/>
     </section>
+        </>
   )
 }
 
@@ -15,35 +16,33 @@ export default CharacterDetail
 
 function EpisodeList({episodes})
 {
+    const [sortBy , setSortBy] = useState(true);
+    let sortedEpisodes;
+    if(sortBy)
+    {
+        sortedEpisodes = [...episodes].sort((a,b)=> new Date(b.created) - new Date(a.created));
+    } else{
+        sortedEpisodes = [...episodes].sort((a,b)=> new Date(a.created) - new Date(b.created));
+    }
     return(
         <div className="charcter-episodes_list">
         <div className="character-episodes_header">
             <h2 className="character-episodes_title">List of Episodes:</h2>
-            <button className="character-episode_sort">
-            <ArrowUpCircleIcon className="character-episode_sort-icon"/>
+            <button 
+            className="character-episode_sort"
+            onClick={()=> setSortBy(!sortBy)}
+            >
+            <ArrowUpCircleIcon 
+            className="character-episode_sort-icon"
+            style={{rotate:sortBy ? "0deg" : "180deg"}}
+            />
             </button>
         </div>
         <ul className="character-episode_list">
-        {episodes.map((episode , index)=>{return <Episode key={index} episode = {episode} id = {index}/>})}
+        {sortedEpisodes.map((episode , index)=>{return <Episode key={index} episode = {episode} id = {index}/>})}
         </ul>
     </div>
     )
-}
-
-function Character({character})
-{
-    return(
-        <div className="charcter-detail_info">
-        <img src={character.image} alt="Character Picture" className="character-detail_image"/>
-        <div className="character-detail_content">
-            <h2 className="character-detail_name"><span className="character-detail_icon">👨‍🦳</span>{character.name}</h2>
-            <p className="character-detail_status"><span className="character-detail_status-icon">🟢</span>{character.status} - {character.gender}</p>
-            <p className="character-detail_location">Last known location:</p>
-            <h3 className="character-detail_location-name">{character.location.name}</h3>
-            <button className="character-detail_addfavouriets">Add to Favourite</button>
-        </div>
-    </div>
-    );
 }
 
 function Episode({episode,id})
